@@ -26,13 +26,26 @@ You will find the backlog in the **Backlog** view on every sprint.
 
 Copy the tickets you are working on to your own backlog. Organise your tickets on your board and move them to the right column as you work through them. Here's a flowchart showing the stages a ticket goes through:
 
-```mermaid
-flowchart LR
-    Backlog --> Ready
-    Ready --> in_progress
-    in_progress[In Progress] --> in_review
-    in_review[In Review] --> Done
-```
+flowchart TD
+    subgraph Remote["Remote (GitHub)"]
+        A["CodeYourFuture/education-blog"] -->|fork| B["EagerLearner/education-blog"]
+    end
+    
+    B -->|clone| C
+    
+    subgraph Local["Local (your computer)"]
+        C["YOUR_CYF_FOLDER/education-blog"]
+    end
+    
+    %% Style definitions
+    classDef container stroke-dasharray:5 5,fill:#f8f9fa,stroke:#495057
+    classDef rounded rx:10,ry:10,fill:#e9ecef,stroke:#495057
+    classDef arrow color:#0d6efd,stroke-width:2px
+    
+    %% Apply styles
+    class Remote,Local container
+    class A,B,C rounded
+    linkStyle 0,1 stroke:#0d6efd,stroke-width:2px
 
 {{<note title="Backlog (30 minutes)" type="activity">}}
 
